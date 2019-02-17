@@ -65,6 +65,7 @@ end
     row=DB[:conn].execute(sql,id)
   Dog.new_from_db(row[0])
   end
+
     def update
       sql =  <<-SQL
     UPDATE dogs SET name = ?, breed = ? Where  id =?
