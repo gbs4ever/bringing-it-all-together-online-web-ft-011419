@@ -51,7 +51,15 @@ SELECT *FROM dogs WHERE name  = ?;
   row=DB[:conn].execute(sql,name)
 Dog.new_from_db(row[0])
 end
-
+def update
+  sql =  <<-SQL
+UPDATE dogs SET name = ?, breed=?,Where=?
+  DB[:conn].execute(sql,self.name,self.breed,self.id)
+SQL
+end  
+  
+  
+end
 
 
 
