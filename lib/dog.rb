@@ -44,7 +44,7 @@ end
 def self.new_from_db(row)
   data=row[0]
   binding.pry
-  .id=data[0]
+  #.id=data[0]
 self.name=data[1]
 self.breed=data[2]
 data
