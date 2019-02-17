@@ -6,7 +6,9 @@ def initialize(name:,breed:,id:=nil)
   @id=id
 end
 
-
+def self.create_table
+  
+end
 
 
 
