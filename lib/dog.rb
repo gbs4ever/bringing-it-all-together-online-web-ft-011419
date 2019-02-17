@@ -42,12 +42,7 @@ file
 end
 
 def self.new_from_db(row)
-  data=row[0]
-  binding.pry
-  #.id=data[0]
-self.name=data[1]
-self.breed=data[2]
-data
+Dog.new(id:row[0],name:row[1],breed:row[2])
 end
 def self.find_by_name(name)
   sql =  <<-SQL
