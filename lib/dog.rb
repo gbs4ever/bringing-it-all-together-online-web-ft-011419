@@ -48,7 +48,10 @@ self.name=data[1]
 self.breed=data[2]
 
 end
+def self.find_by_name
 
+  
+end
 
 
 
