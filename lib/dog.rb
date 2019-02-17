@@ -61,9 +61,9 @@ def self.find_or_create_by
   if !file.empty?
     row=file[0]
     file=Dogs.new(id:row[0],name:row[1],breed:row[2])
-else
-  file= self.create(name:, breed:)
-end
+  else
+    file= self.create(name:name, breed:breed)
+  end
 file
 end
 
