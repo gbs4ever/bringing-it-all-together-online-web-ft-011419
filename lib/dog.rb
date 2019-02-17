@@ -37,7 +37,7 @@ def save
 end
 
 def self.create(name:, breed:)
-file = Dog.new(name:name, Breed:breed)
+file = Dog.new(name:name, breed:breed)
 file.save
 file
 end
@@ -53,7 +53,16 @@ end
     row=DB[:conn].execute(sql,name)
   Dog.new_from_db(row[0])
   end
+#def self.find_or_create_by
+#  sql =  <<-SQL
+#  SELECT *FROM dogs WHERE name  = ? and breed =?;
+#  SQL
+#  file=DB[:conn].execute(sql,name,breed)
+#  if !file.empty?
+#    row=file[0]
 
+  
+#end
 
 
 
