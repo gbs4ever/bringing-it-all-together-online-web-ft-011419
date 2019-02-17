@@ -53,16 +53,19 @@ end
     row=DB[:conn].execute(sql,name)
   Dog.new_from_db(row[0])
   end
-#def self.find_or_create_by
-#  sql =  <<-SQL
-#  SELECT *FROM dogs WHERE name  = ? and breed =?;
-#  SQL
-#  file=DB[:conn].execute(sql,name,breed)
-#  if !file.empty?
-#    row=file[0]
-
-
-#end
+def self.find_or_create_by
+  sql =  <<-SQL
+  SELECT *FROM dogs WHERE name  = ? and breed =?;
+ SQL
+ file=DB[:conn].execute(sql,name,breed)
+  if !file.empty?
+    row=file[0]
+    file=Dogs.new(id:row[0],name:row[1],breed:row[2]) 
+else
+  file= self.create(name:, breed:)
+end
+file
+end
 
 
 
