@@ -37,7 +37,7 @@ def save
 end
 
 def self.create(name:, breed:)
-file=Dog.new(name:name, Breed:breed)
+file = Dog.new(name:name, Breed:breed)
 file.save
 file
 end
@@ -62,7 +62,7 @@ end
     sql =  <<-SQL
   SELECT *FROM dogs WHERE id  = ?;
     SQL
-    row=DB[:conn].execute(sql,name)
+    row=DB[:conn].execute(sql,id)
   Dog.new_from_db(row[0])
   end
     def update
