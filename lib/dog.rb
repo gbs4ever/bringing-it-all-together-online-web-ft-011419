@@ -24,15 +24,15 @@ def self.drop_table
 end
 
 def save
- if self.id
-   self.update
-  else
+ #if self.id
+  # self.update
+  #else
   sql =  <<-SQL
   INSERT INTO dogs (name,breed)values (?,?)
   SQL
   DB[:conn].execute(sql,self.name,self.breed)
    @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
- end
+ #end
 end
 
 def self.create(name:,breed:)
@@ -51,12 +51,12 @@ SELECT *FROM dogs WHERE name  = ?;
   row=DB[:conn].execute(sql,name)
 Dog.new_from_db(row[0])
 end
-def update
-  sql =  <<-SQL
-UPDATE dogs SET name = ?, breed = ? Where  id =?
-SQL
-  DB[:conn].execute(sql,self.name,self.breed,self.id)
-end
+  def update
+    sql =  <<-SQL
+  UPDATE dogs SET name = ?, breed = ? Where  id =?
+  SQL
+    DB[:conn].execute(sql,self.name,self.breed,self.id)
+  end
 
 
 
