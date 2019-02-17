@@ -53,7 +53,7 @@ end
     row=DB[:conn].execute(sql,name)
   Dog.new_from_db(row[0])
   end
-def self.find_or_create_by(name:,album:)
+def self.find_or_create_by(name:,breed:)
   sql =  <<-SQL
   SELECT *FROM dogs WHERE name  = ? and breed =?;
  SQL
