@@ -46,9 +46,9 @@ Dog.new(id:row[0],name:row[1],breed:row[2])
 end
 def self.find_by_name(name)
   sql =  <<-SQL
-SELECT *FROM dogs WHERE = name;
+SELECT *FROM dogs WHERE = ?;
   SQL
-  DB[:conn].execute(sql)
+  DB[:conn].execute(sql,name)
 
 end
 
