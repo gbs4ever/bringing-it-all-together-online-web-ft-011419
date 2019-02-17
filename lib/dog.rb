@@ -46,7 +46,7 @@ def self.new_from_db(row)
   self.id=data[0]
 self.name=data[1]
 self.breed=data[2]
-
+data
 end
 def self.find_by_name(name)
   sql =  <<-SQL
