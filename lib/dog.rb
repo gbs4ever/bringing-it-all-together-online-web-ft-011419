@@ -56,10 +56,6 @@ def update
 UPDATE dogs SET name = ?, breed=?,Where=?
 SQL
   DB[:conn].execute(sql,self.name,self.breed,self.id)
-
-end
-
-
 end
 
 
