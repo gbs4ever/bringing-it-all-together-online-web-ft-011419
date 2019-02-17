@@ -60,7 +60,7 @@ end
 
   def self.find_by_id(id)
     sql =  <<-SQL
-  SELECT *FROM dogs WHERE id  = ?;
+  SELECT *FROM dogs WHERE id  = ? LIMIT 1;
     SQL
     row=DB[:conn].execute(sql,id)
   Dog.new_from_db(row[0])
