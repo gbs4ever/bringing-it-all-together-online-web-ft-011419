@@ -18,7 +18,7 @@ def self.create_table
   end
 
 
-end
+
 
 
 
