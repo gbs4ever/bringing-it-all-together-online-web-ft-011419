@@ -53,7 +53,7 @@ def self.find_by_name(name)
 SELECT *FROM dogs WHERE = name;
   SQL
   DB[:conn].execute(sql)
-  
+
 end
 
 
