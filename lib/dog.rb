@@ -45,19 +45,32 @@ end
 def self.new_from_db(row)
 Dog.new(id:row[0],name:row[1],breed:row[2])
 end
-def self.find_by_name(name)
-  sql =  <<-SQL
-SELECT *FROM dogs WHERE name  = ?;
-  SQL
-  row=DB[:conn].execute(sql,name)
-Dog.new_from_db(row[0])
-end
-  def update
+
+  def self.find_by_name(name)
     sql =  <<-SQL
-  UPDATE dogs SET name = ?, breed = ? Where  id =?
-  SQL
-    DB[:conn].execute(sql,self.name,self.breed,self.id)
+  SELECT *FROM dogs WHERE name  = ?;
+    SQL
+    row=DB[:conn].execute(sql,name)
+  Dog.new_from_db(row[0])
   end
+
+
+
+
+
+  def self.find_by_id(id)
+    sql =  <<-SQL
+  SELECT *FROM dogs WHERE id  = ?;
+    SQL
+    row=DB[:conn].execute(sql,name)
+  Dog.new_from_db(row[0])
+  end
+    def update
+      sql =  <<-SQL
+    UPDATE dogs SET name = ?, breed = ? Where  id =?
+    SQL
+      DB[:conn].execute(sql,self.name,self.breed,self.id)
+    end
 
 
 
