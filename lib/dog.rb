@@ -24,12 +24,15 @@ def self.drop_table
 end
 
 def save
+ if self.id
+   self.update
+  else
   sql =  <<-SQL
   INSERT INTO dogs (name,breed)values (?,?)
   SQL
   DB[:conn].execute(sql,self.name,self.breed)
    @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
-
+ end
 end
 
 
