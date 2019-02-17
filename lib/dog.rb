@@ -37,7 +37,7 @@ def save
 end
 
 def self.create(name:,breed:)
-file=Dog.new(name,breed)
+file=Dog.new(name:name,Breed:breed)
 file.save
 file
 end
