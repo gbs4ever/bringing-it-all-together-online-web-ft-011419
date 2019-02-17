@@ -60,7 +60,7 @@ def self.find_or_create_by(name:,breed:)
  file=DB[:conn].execute(sql,name,breed)
   if !file.empty?
     row=file[0]
-    file=Dogs.new(id:row[0],name:row[1],breed:row[2])
+    file=Dog.new(id:row[0],name:row[1],breed:row[2])
   else
     file= self.create(name:name, breed:breed)
   end
