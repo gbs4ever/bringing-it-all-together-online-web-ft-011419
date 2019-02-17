@@ -41,6 +41,13 @@ file.save
 file
 end
 
+def self.new_from_db(row)
+  data=row[0]
+  self.id=data[0]
+self.name=data[1]
+self.breed=data[2]
+
+end
 
 
 
